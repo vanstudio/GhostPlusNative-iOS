@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.authors          = { 'VANSTUDIO' => 'vanstudio@ghost-corps.com' }
   
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '8.0'
   s.requires_arc = true
   
   s.vendored_frameworks = ['Frameworks/GhostPlusNative.framework']
@@ -28,5 +28,4 @@ Pod::Spec.new do |s|
   #s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/TestGhostPlus"' }
   
   s.dependency 'GhostPlus'
-  s.dependency 'GPUImage', '~> 0.1.7'
 end
