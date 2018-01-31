@@ -1,8 +1,8 @@
 //
 //  GPNBannerView.h
-//  NativeFrameworkSample
+//  GhostPlusNative
 //
-//  Created by VANSTUDIO on 2017. 7. 28..
+//  Created by VANSTUDIO on 2017. 7.
 //  Copyright © 2017년 VANSTUDIO. All rights reserved.
 //
 
@@ -50,6 +50,12 @@
 - (void)reloadData;
 /** set bounces */
 - (void)setBounces:(BOOL)bounces;
+/** get auto scrolling state */
+- (BOOL)isAutoScrolling;
+/** start auto scroll */
+- (void)startAutoScroll;
+/** stop auto scroll */
+- (void)stopAutoScroll;
 @end
 
 
