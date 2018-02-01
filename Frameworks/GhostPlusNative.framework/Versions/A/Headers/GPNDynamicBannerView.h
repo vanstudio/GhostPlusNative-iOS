@@ -11,6 +11,7 @@
 
 @protocol GPNDynamicBannerViewDataSource;
 @protocol GPNDynamicBannerViewDelegate;
+@protocol GPNDynamicBannerViewScrollDelegate;
 
 
 @interface GPNDynamicBannerViewOptions : NSObject
@@ -31,6 +32,8 @@
 @property (nonatomic, weak) id <GPNDynamicBannerViewDataSource> dataSource;
 /** delegate */
 @property (nonatomic, weak) id <GPNDynamicBannerViewDelegate> delegate;
+/** scroll delegate */
+@property (nonatomic, weak) id <GPNDynamicBannerViewScrollDelegate> scrollDelegate;
 
 /** init with options */
 - (instancetype)initWithOptions:(GPNDynamicBannerViewOptions *)options;
@@ -64,4 +67,23 @@
 @protocol GPNDynamicBannerViewDelegate <UIScrollViewDelegate>
 @optional
 - (void)dynamicBannerView:(GPNDynamicBannerView *)dynamicBannerView didSelectItemAtIndex:(NSInteger)index;
+@end
+
+
+/**
+ GPNDynamicBannerViewScrollDelegate
+ 스크롤 델리게이트
+ */
+@protocol GPNDynamicBannerViewScrollDelegate <NSObject>
+@optional
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView;
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView;
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset;
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView;
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView;
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView;
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView;
 @end
