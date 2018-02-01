@@ -19,11 +19,12 @@
 
 // Module
 #import <GhostPlusNative/GPNBannerView.h>
+#import <GhostPlusNative/GPNDynamicBannerView.h>
 #import <GhostPlusNative/GPNGridView.h>
 
 // Constans
-#define GhostPlusNative_VERSION           @"1.03";
-#define GhostPlusNative_BUILD_VERSION     @"103";
+#define GhostPlusNative_VERSION           @"1.04";
+#define GhostPlusNative_BUILD_VERSION     @"104";
 
 
 /**
