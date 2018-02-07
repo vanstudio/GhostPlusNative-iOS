@@ -45,6 +45,10 @@
 - (void)reloadData;
 /** set bounces */
 - (void)setBounces:(BOOL)bounces;
+/** select item */
+- (void)selectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated scrollPosition:(UICollectionViewScrollPosition)scrollPosition;
+/** deselect item */
+- (void)deselectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated;
 @end
 
 
