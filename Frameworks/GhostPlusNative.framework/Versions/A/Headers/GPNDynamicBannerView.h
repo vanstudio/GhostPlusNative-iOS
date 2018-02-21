@@ -70,7 +70,18 @@
  */
 @protocol GPNDynamicBannerViewDelegate <UIScrollViewDelegate>
 @optional
+- (BOOL)dynamicBannerView:(GPNDynamicBannerView *)dynamicBannerView shouldHighlightItemAtIndex:(NSInteger)index;
+- (void)dynamicBannerView:(GPNDynamicBannerView *)dynamicBannerView didHighlightItemAtIndex:(NSInteger)index;
+- (void)dynamicBannerView:(GPNDynamicBannerView *)dynamicBannerView didUnhighlightItemAtIndex:(NSInteger)index;
+- (BOOL)dynamicBannerView:(GPNDynamicBannerView *)dynamicBannerView shouldSelectItemAtIndex:(NSInteger)index;
+- (BOOL)dynamicBannerView:(GPNDynamicBannerView *)dynamicBannerView shouldDeselectItemAtIndex:(NSInteger)index;
 - (void)dynamicBannerView:(GPNDynamicBannerView *)dynamicBannerView didSelectItemAtIndex:(NSInteger)index;
+- (void)dynamicBannerView:(GPNDynamicBannerView *)dynamicBannerView didDeselectItemAtIndex:(NSInteger)index;
+
+- (void)dynamicBannerView:(GPNDynamicBannerView *)dynamicBannerView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndex:(NSInteger)index;
+- (void)dynamicBannerView:(GPNDynamicBannerView *)dynamicBannerView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndex:(NSInteger)index;
+- (void)dynamicBannerView:(GPNDynamicBannerView *)dynamicBannerView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndex:(NSInteger)index;
+- (void)dynamicBannerView:(GPNDynamicBannerView *)dynamicBannerView didEndDisplayingSupplementaryView:(UICollectionReusableView *)view forElementOfKind:(NSString *)elementKind atIndex:(NSInteger)index;
 @end
 
 

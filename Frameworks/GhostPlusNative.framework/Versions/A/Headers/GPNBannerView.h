@@ -11,6 +11,7 @@
 
 @protocol GPNBannerViewDataSource;
 @protocol GPNBannerViewDelegate;
+@protocol GPNBannerViewScrollDelegate;
 
 
 @interface GPNBannerViewOptions : NSObject
@@ -31,6 +32,8 @@
 @property (nonatomic, weak) id <GPNBannerViewDataSource> dataSource;
 /** delegate */
 @property (nonatomic, weak) id <GPNBannerViewDelegate> delegate;
+/** scroll delegate */
+@property (nonatomic, weak) id <GPNBannerViewScrollDelegate> scrollDelegate;
 /** current page */
 @property (nonatomic, assign) NSInteger currentPage;
 
@@ -77,7 +80,38 @@
 @protocol GPNBannerViewDelegate <UIScrollViewDelegate>
 @optional
 - (void)bannerView:(GPNBannerView *)bannerView didScrollItemAtIndex:(NSInteger)index;
+
+- (BOOL)bannerView:(GPNBannerView *)bannerView shouldHighlightItemAtIndex:(NSInteger)index;
+- (void)bannerView:(GPNBannerView *)bannerView didHighlightItemAtIndex:(NSInteger)index;
+- (void)bannerView:(GPNBannerView *)bannerView didUnhighlightItemAtIndex:(NSInteger)index;
+- (BOOL)bannerView:(GPNBannerView *)bannerView shouldSelectItemAtIndex:(NSInteger)index;
+- (BOOL)bannerView:(GPNBannerView *)bannerView shouldDeselectItemAtIndex:(NSInteger)index;
 - (void)bannerView:(GPNBannerView *)bannerView didSelectItemAtIndex:(NSInteger)index;
+- (void)bannerView:(GPNBannerView *)bannerView didDeselectItemAtIndex:(NSInteger)index;
+
+- (void)bannerView:(GPNBannerView *)bannerView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndex:(NSInteger)index;
+- (void)bannerView:(GPNBannerView *)bannerView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndex:(NSInteger)index;
+- (void)bannerView:(GPNBannerView *)bannerView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndex:(NSInteger)index;
+- (void)bannerView:(GPNBannerView *)bannerView didEndDisplayingSupplementaryView:(UICollectionReusableView *)view forElementOfKind:(NSString *)elementKind atIndex:(NSInteger)index;
+@end
+
+
+/**
+ GPNBannerViewScrollDelegate
+ 스크롤 델리게이트
+ */
+@protocol GPNBannerViewScrollDelegate <NSObject>
+@optional
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView;
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView;
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset;
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView;
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView;
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView;
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView;
 @end
 
 
