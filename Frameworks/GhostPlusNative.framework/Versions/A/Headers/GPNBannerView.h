@@ -53,6 +53,16 @@
 - (void)reloadData;
 /** set bounces */
 - (void)setBounces:(BOOL)bounces;
+/** set scroll enabled. default YES */
+- (void)setScrollEnabled:(BOOL)enabled;
+/** show indicator while we are tracking. fades out after tracking. default NO. */
+- (void)setShowsHorizontalScrollIndicator:(BOOL)show;
+/** show indicator while we are tracking. fades out after tracking. default NO. */
+- (void)setShowsVerticalScrollIndicator:(BOOL)show;
+/** set scroll indicator insets. default is UIEdgeInsetsZero. */
+- (void)setScrollIndicatorInsets:(UIEdgeInsets)insets;
+/** set indicator style. default is UIScrollViewIndicatorStyleDefault. */
+- (void)setIndicatorStyle:(UIScrollViewIndicatorStyle)indicatorStyle;
 /** get auto scrolling state */
 - (BOOL)isAutoScrolling;
 /** start auto scroll */
