@@ -34,8 +34,6 @@
 @property (nonatomic, weak) id <GPNDynamicBannerViewDelegate> delegate;
 /** scroll delegate */
 @property (nonatomic, weak) id <GPNDynamicBannerViewScrollDelegate> scrollDelegate;
-/** collection view */
-@property (nonatomic, strong, readonly) UICollectionView *collectionView;
 
 /** init with options */
 - (instancetype)initWithOptions:(GPNDynamicBannerViewOptions *)options;

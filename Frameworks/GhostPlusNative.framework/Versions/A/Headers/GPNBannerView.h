@@ -34,8 +34,6 @@
 @property (nonatomic, weak) id <GPNBannerViewDelegate> delegate;
 /** scroll delegate */
 @property (nonatomic, weak) id <GPNBannerViewScrollDelegate> scrollDelegate;
-/** collection view */
-@property (nonatomic, strong, readonly) UICollectionView *collectionView;
 /** current page */
 @property (nonatomic, assign) NSInteger currentPage;
 

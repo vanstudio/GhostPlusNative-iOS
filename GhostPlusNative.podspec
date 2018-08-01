@@ -1,4 +1,4 @@
-@version = "1.13"
+@version = "1.12"
 Pod::Spec.new do |s|
   s.name             = 'GhostPlusNative'
   s.version          = @version
