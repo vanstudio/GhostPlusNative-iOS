@@ -49,6 +49,10 @@
 - (void)reloadData;
 /** reload sections */
 - (void)reloadSections:(NSIndexSet *)sections animated:(BOOL)animated;
+/** insert sections */
+- (void)insertSections:(NSIndexSet *)sections animated:(BOOL)animated;
+/** delete sections */
+- (void)deleteSections:(NSIndexSet *)sections animated:(BOOL)animated;
 
 /** dequeue reusable cell */
 - (UICollectionViewCell *)dequeueReusableCellForIndexPath:(NSIndexPath *)indexPath;
