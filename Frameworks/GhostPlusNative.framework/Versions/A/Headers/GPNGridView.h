@@ -45,6 +45,14 @@
 
 /** set content offset */
 - (void)setContentOffset:(CGPoint)contentOffset animated:(BOOL)animated;
+/** scroll to section */
+- (void)setContentOffsetWithSection:(NSUInteger)section animated:(BOOL)animated;
+- (void)setContentOffsetWithSection:(NSUInteger)section adjustOffset:(CGPoint)adjustOffset animated:(BOOL)animated;
+/** get content offset at section */
+- (CGPoint)contentOffsetAtSection:(NSUInteger)section;
+/** get section by content offset */
+- (NSUInteger)sectionByContentOffset:(CGPoint)contentOffset;
+
 /** reload data */
 - (void)reloadData;
 /** reload sections */
@@ -94,6 +102,8 @@
 - (UICollectionReusableView *)gridView:(GPNGridView *)gridView footerViewAtIndexPath:(NSIndexPath *)indexPath;	// The view that is returned must be retrieved from a call to -dequeueReusableFooterViewForSection:
 - (BOOL)gridView:(GPNGridView *)gridView shouldCellAutoSizeAtSection:(NSInteger)section;	// default is NO
 - (void)gridView:(GPNGridView *)gridView updateDataForCellAutoSizeWithCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;	// must be implementation -gridView:shouldCellAutoSizeAtSection:
+- (BOOL)gridView:(GPNGridView *)gridView shouldHeaderViewStickyAtSection:(NSInteger)section;	// default is NO
+- (NSUInteger)gridView:(GPNGridView *)gridView headerViewStickySectionRangeLengthAtSection:(NSInteger)section;	// default is 1. // must be implementation -gridView:shouldHeaderViewStickyAtSection:
 @end
 
 /**
@@ -118,6 +128,8 @@
 - (BOOL)gridView:(GPNGridView *)gridView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath;
 - (BOOL)gridView:(GPNGridView *)gridView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender;
 - (void)gridView:(GPNGridView *)gridView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender;
+
+- (void)gridView:(GPNGridView *)gridView didScrollAtSection:(NSUInteger)section;
 @end
 
 
