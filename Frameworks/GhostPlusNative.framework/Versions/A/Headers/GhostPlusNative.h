@@ -23,8 +23,8 @@
 #import <GhostPlusNative/GPNGridView.h>
 
 // Constans
-#define GhostPlusNative_VERSION           @"1.18";
-#define GhostPlusNative_BUILD_VERSION     @"118";
+#define GhostPlusNative_VERSION           @"1.19";
+#define GhostPlusNative_BUILD_VERSION     @"119";
 
 
 /**
